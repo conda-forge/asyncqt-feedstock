@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 07aa993c7a4b1d4edbd35acced44d1be01da149ba3f7c9a7fa984be4ceca883f
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.5
+    - python >={{ python_min }}
   run_constrained:
     - pyside2
     - pyqt >=5
@@ -28,6 +28,7 @@ requirements:
 test:
   requires:
     - pyqt
+    - python {{ python_min }}
   imports:
     - asyncqt
 
