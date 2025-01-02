@@ -34,8 +34,8 @@ test:
 
 about:
   home: https://github.com/gmarull/asyncqt
-  license: BSD
-  license_family: BSD-3-Clause
+  license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: Implementation of the PEP 3156 Event-Loop with Qt.
 
